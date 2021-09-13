@@ -3,26 +3,26 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    toolkit.fluxcd.io/tenant: facebooc
-  name: facebooc
+    toolkit.fluxcd.io/tenant: mmp
+  name: mmp
 
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   labels:
-    toolkit.fluxcd.io/tenant: facebooc
-  name: facebooc
-  namespace: facebooc
+    toolkit.fluxcd.io/tenant: mmp
+  name: mmp
+  namespace: mmp
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   labels:
-    toolkit.fluxcd.io/tenant: facebooc
-  name: facebooc-reconciler
-  namespace: facebooc
+    toolkit.fluxcd.io/tenant: mmp
+  name: mmp-reconciler
+  namespace: mmp
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -30,8 +30,8 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: gotk:facebooc:reconciler
+  name: gotk:mmp:reconciler
 - kind: ServiceAccount
-  name: facebooc
-  namespace: facebooc
+  name: mmp
+  namespace: mmp
 
